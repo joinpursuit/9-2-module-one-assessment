@@ -189,13 +189,13 @@ function getBiggestBoxOfficeMovie(movies) {
   if (!movies.length){
     return null;
   }
-  function convertStrToNum(str) {
+  function currencyStrToNum(str) {
     str = str.replace("$", "").replaceAll(",", "");
     return Number(str);
   }
   let highestBoxOffice = movies[0];
   for (movie of movies) {
-    if (convertStrToNum(highestBoxOffice.boxOffice) < convertStrToNum(movie.boxOffice)) {
+    if (currencyStrToNum(highestBoxOffice.boxOffice) < currencyStrToNum(movie.boxOffice)) {
       highestBoxOffice = movie; 
     }
   }
