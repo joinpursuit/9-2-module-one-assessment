@@ -29,13 +29,23 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  let objArr = [];
+  let arr = [];
 
   if (!movies.length) {
     return [];
   }
 
-  return movies.map(char => char.title);
+  /*
+  Option 1;
+  return movies.map(char => char.title); */
+
+  for (let i = 0; i < movies.length; i++) {
+    if( movies.length) {
+      arr.push(movies[i].title)
+    }
+
+  }
+  return arr;
 }
 
 /**
@@ -49,7 +59,18 @@ function getAllMovieTitles(movies) {
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highestScore = 0;
+  for (let movie of movies) {
+  let metascore = Number(movie.metascore);
+  if(metascore > highestScore) {
+  highestScore = metascore;
+  }
+}
+
+return highestScore;
+
+}
 
 /**
  * getAverageIMDBRating()
@@ -62,7 +83,26 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+//   let sumOfRatings = 0;
+// let arr = [];
+
+// if (!movies.length) {
+//   return 0;
+// }
+
+// for(let i = 0; i < movies.length; i++) {
+//   if(movies[i].imbdRating) {
+//     arr.push(Number(movies[i].imbdRating))
+//   }
+// }
+
+// console.log(arr)
+// for(let number of arr) {
+//   sumOfRatings += number;
+// }
+// return averageRating = sumOfRatings / arr.length;
+// }
 
 /**
  * countByRating()
