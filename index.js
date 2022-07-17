@@ -99,20 +99,19 @@ function getAverageIMDBRating(movies) {
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
-  let cntRating = {};
+  let obj = {};
 
   if (!movies.length); {
-    return cntRating;
+    return obj;
+  } 
+  for (let movie of movies) {
+    if (!obj[movie.rated]) {
+      obj[movie.rated] = 1;
+    } else {
+      obj[movie.rated] += 1;
+    }
   }
-  for (let x = 0; x < movies.length; x++) {
-    let ratings = movies[x]["rated"];
-   if (!cntRating[ratings]) {
-    cntRating[ratings] = 1;
-   } else {
-      cntRating[ratings] += 1;
-   }
-  }
-  return cntRating;
+  return obj;
 }
 
 /**
@@ -200,7 +199,10 @@ function filterByGenre(movies, genre) {
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
-  
+  let arr = [];
+  if (!movies.length) {
+    return arr;
+  }
 }
 
 /**
@@ -214,7 +216,12 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let arr = [];
+  if (!movies.length) {
+    return null;
+  }
+}
 
 // Do not change anything below this line.
 module.exports = {
