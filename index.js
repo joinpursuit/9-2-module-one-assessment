@@ -256,7 +256,29 @@ return arr;
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {
+function getBiggestBoxOfficeMovie(movies) {
+  //create variable for the highest box movie as number
+  let highestBox = 0;
+  //create variable for the movie title
+  let highestMovie = "";
+//if there are no movies, return null
+  if (!movies.length){
+    return null;
+  }
+//loop thru movies array
+  for (let movie of movies) {
+    //since the box number is a string and has $ and commas, remove them
+    let numberBox = Number(movie['boxOffice'].replace(/[$,]/g, ''));
+//if the box number at the index is higher than the current highest
+    if (numberBox > highestBox) {
+      //reassign the value of the current highest
+      highestBox = numberBox;
+      //assign the value of the highest movie title
+      highestMovie = movie['title'];
+    }
+  }
+  //return the highest boxes movie title
+  return highestMovie;
 }
 
 // Do not change anything below this line.
