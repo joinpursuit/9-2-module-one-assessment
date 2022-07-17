@@ -139,7 +139,7 @@ function countByRating(movies) {
         obj[rates] = 1;
       } else {
         //if the rate exists in the object, add 1 to the value
-        obj[rates] += 1
+        obj[rates] += 1;
       }
     }
     //return object 
@@ -160,7 +160,28 @@ return obj;
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  //declare movietitle to be null
+   let movieTitle = null;
+   //create empty object to store movietitle
+   let obj = {};
+   //if there are no movies, return null
+   if (!movies.length){
+    return movieTitle;
+   }
+   //loop thru movies array
+  for (let i = 0; i < movies.length; i ++){
+    //if the id doesnt match the imdbid, return null
+  if (id !== movies[i].imdbID){
+    return movieTitle;
+    //if the id matches, assign the movie title to the object as a key
+   } else if (id === movies[i].imdbID) {
+   obj[movieTitle] = movies[i].title;
+  } 
+  } 
+  return obj;
+}
+// findById(exampleMovies, "tt1979376");
 
 /**
  * filterByGenre()
