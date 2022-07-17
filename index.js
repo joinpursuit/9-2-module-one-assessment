@@ -46,7 +46,15 @@ movies.forEach(movie =>
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let metascoreMax = 0;
+  movies.forEach(movie =>{
+    if (movie.metascore > metascoreMax){
+      metascoreMax = movie.metascore;
+    }
+  })
+  return Number(metascoreMax);
+}
 
 /**
  * getAverageIMDBRating()
