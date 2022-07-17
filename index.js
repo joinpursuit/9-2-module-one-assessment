@@ -84,25 +84,16 @@ return highestScore;
  *  //> 7.76
  */
 function getAverageIMDBRating(movies) {
-//   let sumOfRatings = 0;
-// let arr = [];
-
-// if (!movies.length) {
-//   return 0;
-// }
-
-// for(let i = 0; i < movies.length; i++) {
-//   if(movies[i].imbdRating) {
-//     arr.push(Number(movies[i].imbdRating))
-//   }
-// }
-
-// console.log(arr)
-// for(let number of arr) {
-//   sumOfRatings += number;
-// }
-// return averageRating = sumOfRatings / arr.length;
-// }
+ let arr = [];
+  if(!movies.length) {
+  return 0;
+}
+let total = 0;
+for(let movie of movies) {
+  total += Number(movie.imbdRating);
+}
+return total / movies.length;
+}
 
 /**
  * countByRating()
@@ -115,7 +106,17 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  // if(!movies.length) {
+  //   return {};
+
+  // }
+  // let movieRatings = { }
+  // for(let movie of movies) {
+  //   movieRatings[movie.rated] = movieRatings[movie.rated] ? ++movieRatings[movie.rated] : 1
+  // }
+  // return movieRatings;
+}
 
 /**
  * findById()
