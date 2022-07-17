@@ -47,7 +47,22 @@ function getAllMovieTitles(movies) {
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  if (movies.length === 0) {
+    return 0;
+  } 
+let currentHighestMeta = Number(movies[0].metascore);
+  for (let i=1; i<movies.length; i++) {
+    if (Number(movies[i].metascore) > currentHighestMeta) {
+      currentHighestMeta = Number(movies[i].metascore)
+     }
+  }
+  if (movies.length === 0) {
+    return 0;
+  } else {
+    return currentHighestMeta;
+  }
+}
 
 /**
  * getAverageIMDBRating()
@@ -60,7 +75,9 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+ 
+}
 
 /**
  * countByRating()
