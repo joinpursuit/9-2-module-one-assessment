@@ -107,10 +107,10 @@ function countByRating(movies) {
 
   for(let index = 0; index < movies.length; index++){
 
-    object[movies[index].rated] = movies.filter((movies) => movies.rated === movies[index].rated).length
+    object[movies[index].imdbRating] = movies.filter((movies) => movies. imdbRating === movies[index]. imdbRating).length
   }
 
- 
+
   return object
  }
 
@@ -128,8 +128,14 @@ function countByRating(movies) {
       // Toy Story 4
     };
  */
-function findById() { }
-
+function findById(movies, id ) { 
+  for (let movie of movies){
+  if (id === movie){
+    return movie
+  }
+}
+return null
+}
 /**
  * filterByGenre()
  * -----------------------------
@@ -150,8 +156,14 @@ function findById() { }
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre(movies) { 
-
+function filterByGenre(movies, genre) { 
+  let movieGenre = [];
+  for (let movie of movies) {
+    if (movie.genre.toLowerCase().includes(genre.toLowerCase())) {
+      movieGenre.push(movie);
+    }
+  }
+  return movieGenre;
 
 }
 
