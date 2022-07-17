@@ -134,7 +134,7 @@ function countByRating(movies) {
  */
 function findById(movies, id) {
   for(let movie of movies) {
-    if(movie.imdbID === id) {
+    if(movie.imdbID === id) { 
       return movie;
     }
   }
@@ -198,7 +198,17 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let arr = [];
+  
+  for(let i = 0; i < movies.length; i++) {
+    if(parseFloat(movies[i]["released"].split(" ")[2]) <= year) {
+      arr.push(movies[i]);
+    }
+  }
+  return arr;
+  
+}
 
 /**
  * getBiggestBoxOfficeMovie()
