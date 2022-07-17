@@ -30,7 +30,7 @@ const exampleMovies = require("./movies");
  */
 function getAllMovieTitles(movies) {
 let movieArray = []
-for (i=0;i<movies.length;i++){
+for (let i=0;i<movies.length;i++){
   movieArray.push(movies[i].title)
 }
 if(movies.length===0){
@@ -51,7 +51,7 @@ if(movies.length===0){
  */
 function getHighestMetascore(movies) {
 let metascoreArray = []
-  for (i=0;i<movies.length;i++){
+  for (let i=0;i<movies.length;i++){
     metascoreArray.push(Number(movies[i].metascore))
   }
   let highestscore = metascoreArray.sort()
@@ -76,7 +76,7 @@ let metascoreArray = []
 function getAverageIMDBRating(movies) {
 let imbdRATINGlist = []
 let sum = 0
-  for (i=0;i<movies.length;i++){
+  for (let i=0;i<movies.length;i++){
     imbdRATINGlist.push(Number(movies[i].imdbRating))
   }
   for (i=0;i<imbdRATINGlist.length;i++){
@@ -131,7 +131,7 @@ function findById(movies, id) {
 let theID = []
 let theMovies = []
 let newObject ={}
-  for (i=0;i<movies.length;i++){
+  for (let i=0;i<movies.length;i++){
     theID.push(movies[i].imdbID)
     theMovies.push(movies[i].title)
   }
@@ -165,7 +165,55 @@ else{
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+let formattedGENRE = `${genre.charAt(0).toUpperCase()}${genre.slice(1).toLowerCase()}`;
+let thenewObject = {}
+  
+for (let i=0;i<movies.length;i++){
+
+
+
+   if(movies[i].genre.includes(formattedGENRE)){
+     thenewObject[movies[i]]
+  }}
+
+if(movies.length ===0 ){return []
+}
+else{
+  return thenewObject}
+}
+
+// let genresArray = []
+// let moviesArray = []
+// let newObjectArray = []
+// let formattedGENRE = `${genre.charAt(0).toUpperCase()}${genre.slice(1).toLowerCase()}`
+// console.log(formattedGENRE)
+// console.log(genre)
+
+// for (let i=0;i<movies.length;i++){
+//   genresArray.push([movies[i]["genre"]])
+//   moviesArray.push(movies[i].title)
+
+// }
+// console.log(genresArray)
+// // for (let element of genresArray){
+//   for(let i=0;i<genresArray.length;i++){
+//     for(let j=0;j<genresArray[i].length;j++){
+// if(genresArray[i][j]===formattedGENRE){
+//   newObjectArray.push(i)
+// }}
+//   // if(element.includes(formattedGENRE)){
+//   //   console.log(element)
+//   //   // newObjectArray.push(genresArray.indexOf(element))
+//   }
+// //   console.log(newObjectArray)
+// // if(movies.length ===0 || !genresArray.includes(formattedGENRE))
+// for (i=0;i<newObjectArray.length;i++){
+//   return movies[newObjectArray[i]]
+// }
+
+
+
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -202,7 +250,28 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  boxOfficeArray = []
+  movieArray = []
+  boxModifiedNumberArray=[]
+  for (let i=0;i<movies.length;i++){
+    boxOfficeArray.push(movies[i].boxOffice)
+  }
+  for (let i=0;i<boxOfficeArray.length;i++){
+   let newBOX =  boxOfficeArray[i].slice(1)
+   newBOX= newBOX.replaceAll(",","")
+   boxModifiedNumberArray.push(Number(newBOX))
+}
+const notsortedBOX = boxModifiedNumberArray
+let orderedArray = boxModifiedNumberArray.sort()
+console.log(notsortedBOX)
+console.log(boxModifiedNumberArray)
+if(movies.length ===0){
+  return null
+}
+else{return movieArray[notsortedBOX.indexOf(orderedArray[orderedArray.length-1])]}
+
+}
 
 // Do not change anything below this line.
 module.exports = {
