@@ -93,7 +93,15 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let ratingsAndMovies = {};
+
+  for (const movie of movies) {
+    ratingsAndMovies[movie['rated']] = ratingsAndMovies[movie['rated']] ? ++ratingsAndMovies[movie['rated']] : 1;
+  }
+
+  return ratingsAndMovies;
+}
 
 /**
  * findById()
