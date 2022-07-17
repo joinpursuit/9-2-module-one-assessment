@@ -196,7 +196,7 @@ function getBiggestBoxOfficeMovie(movies) {
     biggest = movies[i]
   }
 }
-  return biggest.title || null
+  return biggest.title
 }
 
 // Do not change anything below this line.
