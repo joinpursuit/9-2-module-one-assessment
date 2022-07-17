@@ -223,10 +223,21 @@ function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
  *  //> "Incredibles 2"
  */
 function getBiggestBoxOfficeMovie(movies) {
-
-
-
   
+  let biggestNum = 0
+  let biggestBox = null;
+
+ for (let i=0; i< movies.length; i++) {
+
+  if (Number(movies[i].boxOffice.replaceAll("$", "").replaceAll(",", "")) > biggestNum) {
+
+   biggestNum= Number(movies[i].boxOffice.replaceAll("$", "").replaceAll(",", ""));
+
+   biggestBox = movies[i].title;
+    }
+  }
+  return biggestBox;
+
 }
 
 // Do not change anything below this line.
