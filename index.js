@@ -51,7 +51,31 @@ function getAllMovieTitles(movies) {
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  //if the array of movies is empty, return 0
+  if (!movies.length){
+    return 0;
+  }
+  //create empty array to push all metascores into
+let arr = [];
+//loop thru movies array
+for (let i = 0; i < movies.length; i ++){
+  //push all metascores into the empty array
+  arr.push(Number(movies[i].metascore))
+}
+//let the highest be the first index
+let highest = arr[0]
+//loop thru array of scores
+for (let j = 1; j < arr.length; j ++){
+  //if j is greater than the current highest
+if (arr[j] > highest){
+  //j is now assigned the highest
+  highest = arr[j]
+}
+}
+//return the highest metascore
+return highest;
+}
 
 /**
  * getAverageIMDBRating()

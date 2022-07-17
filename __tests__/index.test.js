@@ -41,7 +41,7 @@ describe("getAllMovieTitles()", () => {
   });
 });
 
-describe("getHighestMetascore()", () => {
+describe.only("getHighestMetascore()", () => {
   test("should return highest Metascore of all movies as a number", () => {
     const actual = getHighestMetascore(movies);
     const expected = 96;
