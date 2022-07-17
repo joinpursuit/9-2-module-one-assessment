@@ -59,7 +59,7 @@ describe("getHighestMetascore()", () => {
   });
 });
 
-describe.only("getAverageIMDBRating()", () => {
+describe("getAverageIMDBRating()", () => {
   test("should return the average IMDB rating across all movies", () => {
     const actual = getAverageIMDBRating(movies);
     const expected = 7.76;
@@ -95,7 +95,7 @@ describe("countByRating()", () => {
   });
 });
 
-describe("findById()", () => {
+describe.only("findById()", () => {
   test("should return the entire movie based on the IMDB ID", () => {
     const id = "tt0892769";
     const actual = findById(movies, id);

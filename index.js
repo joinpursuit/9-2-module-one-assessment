@@ -110,7 +110,10 @@ function findById(movies, id) {
   let movieObject = null;
   movies
   .filter(movie => movie.imdbID === id)
-  .map(movie => movie);
+  .map(movie => {
+    movieObject = movie;
+    return movieObject
+  });
   return movieObject;
 }
 
