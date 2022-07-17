@@ -65,7 +65,22 @@ return highestMetascore;
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let averageIMDBRating = 0;
+  let amount = 0;
+  if (movies.length === 0) {
+    return 0;
+  }
+  for (let movie of movies) {
+    if (typeof Number(movie.imdbRating) === 'number') {
+      averageIMDBRating += Number(movie.imdbRating);
+      amount++;
+    } else {
+      return 0
+    }
+  }
+  return averageIMDBRating / amount;
+}
 
 /**
  * countByRating()
