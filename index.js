@@ -203,17 +203,17 @@ function filterByGenre(movies, genre) {
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
-  // let releasedArray = []
+  let releasedArray = []
 
-  // for(let i = 0; i < movies.length; i++) {
-  //  const yearString =  movies[i].released.split(" ") 
-  //  const yearNumber = Number(yearString[yearString.length-1]) === year 
-
-  //  if(yearNumber <= year){
-  //   releasedArray.push(movies[i])
-  //  }
-  
-  // }
+  for(let i = 0; i < movies.length; i++) {
+   movies[i].released.split(" ") 
+   let yearString = movies[i].released.split(" ")
+   const yearNumber = Number(yearString[yearString.length-1])
+    if(yearNumber < year || yearNumber === year){
+    releasedArray.push(movies[i])
+   }
+   return releasedArray()
+  }
   }
 
 
