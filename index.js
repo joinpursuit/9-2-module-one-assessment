@@ -88,7 +88,28 @@ return highest;
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  //create variable for sum, starts at 0
+  let sum = 0;
+  //create empty array to hold all ratings
+  let arr = [];
+  //if there are no movies, return the sum which is zero
+  if (!movies.length){
+    return sum;
+  }
+  //loop thru movies array
+  for (let i = 0; i < movies.length; i ++){
+    //push all ratings as a number into the array
+      arr.push(Number(movies[i].imdbRating))
+    }
+  //loop thru array of ratings
+  for (let j = 0; j < arr.length; j ++){
+    //add all ratings
+    sum += arr[j];
+  }
+  //return average of the ratings
+  return sum/arr.length;
+}
 
 /**
  * countByRating()
