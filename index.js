@@ -55,7 +55,14 @@ function getAllMovieTitles(movies) {
  *  //> 96
  */
 function getHighestMetascore(movies) {
+let metaHighScore = 0;
 
+   for ( let movie of movies) {
+     if (Number(movie['metascore']) > metaHighScore) {
+       metaHighScore = Number(movie['metascore']);
+     }
+   }
+   return metaHighScore;
 }
 
 /**
@@ -143,7 +150,10 @@ function findById() { }
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() { }
+function filterByGenre(movies) { 
+
+
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
