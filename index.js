@@ -163,10 +163,10 @@ function findById(movies, id) {
  */
 function filterByGenre(movies, genre) {
   let moviesWithGenre = [];
-  formatGenre = genre[0].toUpperCase() + genre.slice(1).toLowerCase();
+  formatGenre = genre[0].toUpperCase() + genre.slice(1).toLowerCase();  // formats string parameter Genre
   for (let i=0; i<movies.length; i++) {
-    let genreArray = movies[i].genre.split(', ');
-    if (genreArray.includes(formatGenre)) {
+    let genreArray = movies[i].genre.split(', ');   // splits several strings representing genres into array
+    if (genreArray.includes(formatGenre)) {  //if genreArray includes genre argument then push that movie obj.
       moviesWithGenre.push(movies[i])
     }
   }
@@ -218,22 +218,24 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie(movies) {
-  if (movies.length === 0) {
+
+
+ function getBiggestBoxOfficeMovie(movies) {
+  let mostProfit = 0;    //initialize
+  let movieTitle = "";   
+  if (movies.length === 0) {          //Guard clause for error message empty array
     return null;
   }
-  let mostProfit = movies[0].boxOffice.slice(1)
-  let movieTitle;
-  for (let i=1; i<movies.length; i++) {
-    let currentMovie = movies[i].boxOffice.slice(1)
-    if (Number(currentMovie.join('')) > Number(mostProfit.join(''))) {
-      mostProfit = currentMovie;
+for (let i=0; i<movies.length; i++) {         
+    let boxOfficeFormat = Number(movies[i]['boxOffice'].replace(/[$,]/g, ''));  // format boxOffice string
+    if (boxOfficeFormat > mostProfit) {   //if current iteration box office > current, reassign mostprofit
+      mostProfit = boxOfficeFormat;
+      movieTitle= movies[i]['title'];     // reassign movietitle with highest box office
     }
   }
   return movieTitle;
 }
 
-// getBiggestBoxOfficeMovie(exampleMovies);
 
 
 // Do not change anything below this line.
