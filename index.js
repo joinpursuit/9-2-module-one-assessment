@@ -32,7 +32,7 @@ function getAllMovieTitles(movies) {
 let titleList = [];
 movies.forEach(movie => 
   titleList.push(movie.title))
-  return [...titleList]
+  return [...titleList];
 }
 
 /**
@@ -145,7 +145,16 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  const movieList = [];
+  const genreLower = `${genre[0].toUpperCase()}${genre.slice(1).toLowerCase()}`;
+    movies.forEach(movie => {
+      let tmpList = movie.genre.split(", ")
+      
+      tmpList.includes(genreLower) ? movieList.push({...movie}) : null;
+    });
+    return movieList;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
