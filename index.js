@@ -107,12 +107,12 @@ return total / movies.length;
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
-  if(!movies.length) {
+  if(!movies.length) { 
     return {};
 
   }
   let movieRatings = { }
-  for(let movie of movies) {
+  for(let movie of movies) { 
     movieRatings[movie.rated] = movieRatings[movie.rated] ? ++movieRatings[movie.rated] : 1
   }
   return movieRatings;
@@ -133,8 +133,8 @@ function countByRating(movies) {
     };
  */
 function findById(movies, id) {
-  for(let movie of movies) {
-    if(movie.imdbID === id) { 
+  for(let movie of movies) { // iterates through movie array
+    if(movie.imdbID === id) {  // if ID match... return movie
       return movie;
     }
   }
@@ -164,13 +164,13 @@ function findById(movies, id) {
  *  //> []
  */
 function filterByGenre(movies, genre) {
-  let arr = [];
+  let arr = []; // creates empty array for movies.
   
-  genre = genre.toLocaleLowerCase();
+  genre = genre.toLocaleLowerCase(); // turns "genre" to lower case
 
-  for (let movie of movies) {
-    if(movie['genre'].toLocaleLowerCase().split(", ").includes(genre)) {
-      arr.push(movie);
+  for (let movie of movies) {         // iterates through movie array
+    if(movie['genre'].toLocaleLowerCase().split(", ").includes(genre)) {  // checks movie genres
+      arr.push(movie); // push if it matches
     }
   }
   return arr;
@@ -199,15 +199,15 @@ function filterByGenre(movies, genre) {
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
-  let arr = [];
+  let arr = [];           // creates an empty array to push movie titles into
   
-  for(let i = 0; i < movies.length; i++) {
-    if(parseFloat(movies[i]["released"].split(" ")[2]) <= year) {
-      arr.push(movies[i]);
+  for(let i = 0; i < movies.length; i++) {         //iterates through movie array     
+    if(parseFloat(movies[i]["released"].split(" ")[2]) <= year) {       // will split the release date and get third element. converts from string to number. checks if year is <= the given year
+      arr.push(movies[i]);    // pushes movie into the empty array
     }
   }
   return arr;
-  
+
 }
 
 /**
@@ -221,7 +221,15 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let highestBoxOffice = 0; // variable for the highest box movie as number
+  let highestMovie = "";    // variable for the movie title
+
+  if(!movies.length) {      // if there's no movie, return null
+    return null;
+  }
+
+}
 
 // Do not change anything below this line.
 module.exports = {
