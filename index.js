@@ -103,7 +103,20 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  // let ratingsCount = {}
+  // let count = 0
+
+  // if(movies.length === 0) {
+  //   return {}
+  // } else if(movies.length > 0) {
+
+  //   for(let i = 0; i < movies.length; i++){
+
+  //   }
+  // }
+}
+
 
 /**
  * findById()
@@ -119,7 +132,18 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+
+  for(let i = 0; i < movies.length; i++) {
+    if(movies[i].imdbID === id) {
+      return movies[i]
+    }
+  } if(movies.length === 0) {
+    return null
+  } if(movies[i].imdbID !== id) {
+    return null
+  }
+}
 
 /**
  * filterByGenre()
@@ -141,7 +165,8 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {}
+
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -165,7 +190,13 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let releasedMovies = []
+
+  for(let i = 0; i < movies.length; i++) {
+    movies[i].released 
+  }
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -178,7 +209,13 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  // let biggestMovie = 0
+  
+  // for(let i = 0; i < movies.length; i++){
+
+  // }
+}
 
 // Do not change anything below this line.
 module.exports = {
