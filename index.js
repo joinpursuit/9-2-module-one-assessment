@@ -161,7 +161,17 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let moviesWithGenre = [];
+  formatGenre = genre[0].toUpperCase() + genre.slice(1).toLowerCase();
+  for (let i=0; i<movies.length; i++) {
+    let genreArray = movies[i].genre.split(', ');
+    if (genreArray.includes(formatGenre)) {
+      moviesWithGenre.push(movies[i])
+    }
+  }
+  return moviesWithGenre;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -208,7 +218,23 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie(movies) {}
+function getBiggestBoxOfficeMovie(movies) {
+  if (movies.length === 0) {
+    return null;
+  }
+  let mostProfit = movies[0].boxOffice.slice(1)
+  let movieTitle;
+  for (let i=1; i<movies.length; i++) {
+    let currentMovie = movies[i].boxOffice.slice(1)
+    if (Number(currentMovie.join('')) > Number(mostProfit.join(''))) {
+      mostProfit = currentMovie;
+    }
+  }
+  return movieTitle;
+}
+
+// getBiggestBoxOfficeMovie(exampleMovies);
+
 
 // Do not change anything below this line.
 module.exports = {
