@@ -44,7 +44,16 @@ function getAllMovieTitles(movies) {
  *  //> 96
  */
 function getHighestMetascore(movies) {
-  
+  if (!movies.length) {
+    return 0;
+  }
+  let score = Number(movies[0].metascore);
+  movies.forEach(movie => {
+    if (Number(movie.metascore > score)) {
+       score = Number(movie.metascore);
+    } 
+  });
+  return score; 
 }
 
 /**
