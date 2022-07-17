@@ -139,6 +139,8 @@ function findById(movies, id) {
   }
 }
 // findById(exampleMovies, "tt1979376");
+
+
 /**
  * filterByGenre()
  * -----------------------------
@@ -183,7 +185,17 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let releasedMovies = [];
+  for (let i=0; i<movies.length; i++) {
+    if (Number(movies[i].released.split(" ")[2]) <= year) {
+      releasedMovies.push(movies[i]);
+    }
+  }
+  return releasedMovies;
+}
+// getAllMoviesReleasedAtOrBeforeYear(exampleMovies, 2000)
+
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -196,7 +208,7 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {}
 
 // Do not change anything below this line.
 module.exports = {
