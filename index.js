@@ -28,7 +28,18 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let titles = [];
+  for(let i = 0; i < movies.length; i++) {
+    if(movies) {
+      for(let movie of movies) {
+      titles.push(movie.title);
+      }
+      return titles;
+    }
+  }
+  return titles;
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +52,13 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  if(movies.length === 0) {
+    return 0;
+  }
+  let highestMeta = Math.max.apply(null, movies.map(item => item.metascore));
+  return highestMeta;
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +71,18 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let imdbRate = [];
+  for(let i = 0; i < movies.length; i++) {
+    if(movies) {
+      for(let movie of movies) {
+      imdbRate.push(movie.imdbRating);
+      }
+      return eval(imdbRate.join('+'))/imdbRate.length;
+    }
+  }
+  return 0;
+}
 
 /**
  * countByRating()
@@ -67,7 +95,7 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {}
 
 /**
  * findById()
@@ -83,7 +111,17 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let movieId = [];
+  for(let movie of movies) {
+    if(movie.imdbId === id) {
+      movie.imdbId == movie.title;
+      movieId.push(movie.title);
+    }
+      return movieId;
+  }
+  return "null";
+}
 
 /**
  * filterByGenre()
@@ -105,7 +143,24 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let movieObj = {};
+  for(let movie of movies) {
+    movieObj[movie.genre] = movie
+  if(!movie[genre]) {
+    return [];
+  }
+}
+  let element = movies.find(movie => movie.genre === genre);
+  let movieGenre = [];
+  for(let movie of element) {
+    if(movie.genre !== genre) {
+      return [];
+    }
+    movieGenre.push(movieObj[genre]);
+  }
+  return movieGenre;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
