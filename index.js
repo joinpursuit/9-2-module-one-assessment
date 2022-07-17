@@ -29,10 +29,8 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  
-  return movies.title;
+  return movies.map(item => item.title)
 }
-
 /**
  * getHighestMetascore()
  * -----------------------------
@@ -45,18 +43,17 @@ function getAllMovieTitles(movies) {
  *  //> 96
  */
 function getHighestMetascore(movies) {
-   if (highestMoiveScore.length === 0) {
-  return {};
-}
-
-let highestScore = movies [0];
-for (let i = 1; i < movies.length; i ++) {
-  if( movies[i]. movieScore> highestScore) {
-    movieScore = movies[i];
+  
+  let result = 0;
+  
+  for(let movie of movies)
+  {
+    if(Number(movie['metascore'])>result)
+    {
+      result=Number(movie['metascore']);
+    }
   }
-}
-return {
-  [highestScore.name]: highestScore};
+  return result
 }
 
 /**
@@ -70,7 +67,34 @@ return {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let totalIMDBRating = 0;
+  
+  for (let movie of movies) {
+    totalIMDBRating += Number(movie.imdbRating);
+  } 
+  if(movies.length === 0){
+    return 0;
+  }
+  else (movies)
+  return totalIMDBRating/movies.length;
+  
+  // return movies.length === 0 ? 0 : totalIMDBRating/movies.length;
+}
+
+
+
+// let sumIMBDRaiting = 0;
+//   for (let movie of movies) {
+//     sumIMBDRaiting += Number(movie.imdbRating);
+//   }
+//   if( movies/length === 0){
+//     return movies.length;
+//   }
+//   else 
+//   return sumIMBDRaiting/movies.length;
+// }
+
 
 /**
  * countByRating()
