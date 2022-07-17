@@ -77,7 +77,7 @@ describe("getAverageIMDBRating()", () => {
   });
 });
 
-describe.only("countByRating()", () => {
+describe("countByRating()", () => {
   test("should return an object where the keys are ratings and the values are the number of movies with that rating", () => {
     const actual = countByRating(movies);
     const expected = { G: 3, PG: 7 };
@@ -239,7 +239,7 @@ describe("getAllMoviesReleasedAtOrBeforeYear()", () => {
   });
 });
 
-describe("getBiggestBoxOfficeMovie()", () => {
+describe.only("getBiggestBoxOfficeMovie()", () => {
   test("should return the name of the movie with the highest box office", () => {
     const actual = getBiggestBoxOfficeMovie(movies);
     const expected = "Incredibles 2";
