@@ -85,7 +85,7 @@ function getAverageIMDBRating(movies) {
  */
 function countByRating(movies) {
   let ratingCount = movies.reduce((accu, movie) => {
-    accu[movie.rated] ? accu[movie.rating]+= 1 : accu[movie.rating] = 1;
+    accu[movie.rated] ? accu[movie.rated]+= 1 : accu[movie.rated] = 1;
     return accu;
   }, {});
   return ratingCount;
