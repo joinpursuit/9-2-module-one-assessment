@@ -107,15 +107,15 @@ return total / movies.length;
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
-  // if(!movies.length) {
-  //   return {};
+  if(!movies.length) {
+    return {};
 
-  // }
-  // let movieRatings = { }
-  // for(let movie of movies) {
-  //   movieRatings[movie.rated] = movieRatings[movie.rated] ? ++movieRatings[movie.rated] : 1
-  // }
-  // return movieRatings;
+  }
+  let movieRatings = { }
+  for(let movie of movies) {
+    movieRatings[movie.rated] = movieRatings[movie.rated] ? ++movieRatings[movie.rated] : 1
+  }
+  return movieRatings;
 }
 
 /**
