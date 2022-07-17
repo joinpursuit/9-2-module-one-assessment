@@ -161,27 +161,17 @@ return obj;
     };
  */
 function findById(movies, id) {
-  //declare movietitle to be null
-   let movieTitle = null;
-   //create empty object to store movietitle
-   let obj = {};
-   //if there are no movies, return null
-   if (!movies.length){
-    return movieTitle;
-   }
    //loop thru movies array
   for (let i = 0; i < movies.length; i ++){
-    //if the id doesnt match the imdbid, return null
-  if (id !== movies[i].imdbID){
-    return movieTitle;
-    //if the id matches, assign the movie title to the object as a key
-   } else if (id === movies[i].imdbID) {
-   obj[movieTitle] = movies[i].title;
+    //if the id matches, return the movie title
+   if (id === movies[i]["imdbID"]) {
+   return movies[i];
   } 
   } 
-  return obj;
+  //if the id didn't match or the movies array was empty, return null
+  return null;
 }
-// findById(exampleMovies, "tt1979376");
+
 
 /**
  * filterByGenre()
@@ -203,7 +193,9 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let arr = [];
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
