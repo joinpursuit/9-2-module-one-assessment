@@ -30,12 +30,13 @@ const exampleMovies = require("./movies");
  */
 function getAllMovieTitles(movies) {
   let arrayOfTitles = []
-  for (let i=0; i<movies.lenght; i++) {
-    let eachTitleIter = movies[i].title
-    arrayOfTitles.push(eachTitleIter)
+
+  for (titles of movies) {
+    arrayOfTitles.push(titles.title)
   }
   return arrayOfTitles
 }
+
 
 /**
  * getHighestMetascore()
