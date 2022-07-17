@@ -137,7 +137,7 @@ describe("findById()", () => {
   });
 });
 
-describe.only("filterByGenre()", () => {
+describe("filterByGenre()", () => {
   test("should return all movies that include the specified genre", () => {
     const genre = "Mystery";
     const actual = filterByGenre(movies, genre);
@@ -239,7 +239,7 @@ describe("getAllMoviesReleasedAtOrBeforeYear()", () => {
   });
 });
 
-describe("getBiggestBoxOfficeMovie()", () => {
+describe.only("getBiggestBoxOfficeMovie()", () => {
   test("should return the name of the movie with the highest box office", () => {
     const actual = getBiggestBoxOfficeMovie(movies);
     const expected = "Incredibles 2";

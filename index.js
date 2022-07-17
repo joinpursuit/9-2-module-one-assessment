@@ -230,7 +230,20 @@ return arr;
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+ //create empty array to push movie titles into
+let arr = [];
+//iterate through movies array
+for (let i = 0; i < movies.length; i ++){
+  /* split the released date and get the third element. because it is a string, convert it into a Number. then check if that year is less than or equal to the given year */
+  if (parseFloat(movies[i]["released"].split(" ")[2]) <= year){
+    //push the movie into the empty array
+arr.push(movies[i]);
+  }
+}
+//return array with all movies
+return arr;
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -243,7 +256,8 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie() {
+}
 
 // Do not change anything below this line.
 module.exports = {
