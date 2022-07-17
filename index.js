@@ -58,8 +58,8 @@ function getHighestMetascore(movies) {
 let metaHighScore = 0;
 
    for ( let movie of movies) {
-     if (Number(movie['metascore']) > metaHighScore) {
-       metaHighScore = Number(movie['metascore']);
+     if (parseInt(movie['metascore']) > metaHighScore) {
+       metaHighScore = parseInt(movie['metascore']);
      }
    }
    return metaHighScore;
@@ -77,18 +77,22 @@ let metaHighScore = 0;
  *  //> 7.76
  */
 function getAverageIMDBRating(movies) {
+  if (!movies.length) return 0
+  
   let sum = 0
 
   for (let index = 0; index < movies.length; index++) {
-    sum = sum + parseInt(movies[index].IMDBRating)
+
+    sum += Number(movies[index].imdbRating)
+  
 
   }
-  if (movies.length === 0) return 0
+  
   return sum / movies.length
 
+  
 
 }
-
 /**
  * countByRating()
  * -----------------------------
@@ -106,12 +110,11 @@ function countByRating(movies) {
   if(movies.length === 0) return {}
 
   for(let index = 0; index < movies.length; index++){
-
-    object[movies[index].imdbRating] = movies.filter((movies) => movies. imdbRating === movies[index]. imdbRating).length
+    object[movies[index].rated] = movies.filter(movie => movie.rated === movies[index].rated).length
   }
 
-
   return object
+
  }
 
 /**
@@ -129,12 +132,15 @@ function countByRating(movies) {
     };
  */
 function findById(movies, id ) { 
+
   for (let movie of movies){
+
   if (id === movie){
     return movie
   }
+
 }
-return null
+  return null
 }
 /**
  * filterByGenre()
