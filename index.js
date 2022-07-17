@@ -206,7 +206,7 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
 function getBiggestBoxOfficeMovie(movies) {
   let highestBoxOffice = 0;
   let currentHighest = 0;
-  let highestMovie = "";
+  let highestMovie = null;
   movies.forEach(movie => {
     highestBoxOffice = movie.boxOffice.replace('$', "");
     highestBoxOffice = highestBoxOffice.replace(',', "");
@@ -217,7 +217,7 @@ function getBiggestBoxOfficeMovie(movies) {
       highestMovie = movie.title;
     }
   })
-  return !!highestMovie ? highestMovie: null;
+  return highestMovie;
 }
 //i'm too tired steven.
 // i'm done lmao.
