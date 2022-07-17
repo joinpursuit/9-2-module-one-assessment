@@ -70,7 +70,6 @@ function getHighestMetascore(movies) {
 function getAverageIMDBRating(movies) {
   let movieCounter = 0;
   let movieAvg = 0;
-  let tmpIMDBscore = 0;
   movies.forEach(movie =>{
     movieCounter++;
     movieAvg += Number(movie.ratings[0].value.split('/')[0]);
@@ -89,7 +88,19 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+   let keyList = [];
+  let ratingsList = {};
+  movies.forEach(movie => {
+ if (!keyList.includes(movie.rated)){
+ratingsList[movie.rated] = 1;
+keyList.push(movie.rated)
+ } else {
+  ratingsList[movie.rated] = ratingsList[movie.rated] + 1 ;
+ }
+  })
+return ratingsList;
+}
 
 /**
  * findById()

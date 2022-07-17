@@ -59,7 +59,7 @@ describe("getHighestMetascore()", () => {
   });
 });
 
-describe.only("getAverageIMDBRating()", () => {
+describe("getAverageIMDBRating()", () => {
   test("should return the average IMDB rating across all movies", () => {
     const actual = getAverageIMDBRating(movies);
     const expected = 7.76;
@@ -77,7 +77,7 @@ describe.only("getAverageIMDBRating()", () => {
   });
 });
 
-describe("countByRating()", () => {
+describe.only("countByRating()", () => {
   test("should return an object where the keys are ratings and the values are the number of movies with that rating", () => {
     const actual = countByRating(movies);
     const expected = { G: 3, PG: 7 };
