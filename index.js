@@ -30,6 +30,7 @@ const exampleMovies = require("./movies");
  */
 function getAllMovieTitles(movies) {
   let array = [];
+
   for (let i = 0; i < movies.length; i++) {
     array.push(movies[i].title);
   }
@@ -47,7 +48,21 @@ function getAllMovieTitles(movies) {
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  if (movies.length === 0) {
+    return 0;
+  }
+
+let metascores = []
+
+for (let i = 0; i < movies.length; i++) {
+  metascores.push(movies[i].metascore);
+}
+
+let highest = Math.max(...metascores); 
+
+return highest;
+}
 
 /**
  * getAverageIMDBRating()
@@ -60,7 +75,23 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let sum = 0;
+
+  let ratings = [];
+
+  if (movies.length === 0) {
+    return 0;
+  }
+
+  for (let i = 0; i < movies.length; i++) {
+    ratings.push(movies[i].imdbRating);
+    sum += ratings;
+  }
+
+  return sum / ratings.length;
+
+}
 
 /**
  * countByRating()
@@ -73,7 +104,7 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {}
 
 /**
  * findById()
@@ -89,7 +120,7 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {}
 
 /**
  * filterByGenre()
@@ -111,7 +142,7 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
