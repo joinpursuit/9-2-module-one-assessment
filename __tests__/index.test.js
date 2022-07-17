@@ -95,7 +95,7 @@ describe("countByRating()", () => {
   });
 });
 
-describe("findById()", () => {
+describe.only("findById()", () => {
   test("should return the entire movie based on the IMDB ID", () => {
     const id = "tt0892769";
     const actual = findById(movies, id);
