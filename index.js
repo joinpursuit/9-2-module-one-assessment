@@ -28,7 +28,17 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  //create empty array to return movies
+  let allMovies = [];
+  //loop thru movies array
+  for (movie of movies){
+    //push all movies into the array
+    allMovies.push(movie.title)
+  }
+  //return the array
+  return allMovies;
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +51,31 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  //if the array of movies is empty, return 0
+  if (!movies.length){
+    return 0;
+  }
+  //create empty array to push all metascores into
+let arr = [];
+//loop thru movies array
+for (let i = 0; i < movies.length; i ++){
+  //push all metascores into the empty array
+  arr.push(Number(movies[i].metascore))
+}
+//let the highest be the first index
+let highest = arr[0]
+//loop thru array of scores
+for (let j = 1; j < arr.length; j ++){
+  //if j is greater than the current highest
+if (arr[j] > highest){
+  //j is now assigned the highest
+  highest = arr[j]
+}
+}
+//return the highest metascore
+return highest;
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +88,28 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  //create variable for sum, starts at 0
+  let sum = 0;
+  //create empty array to hold all ratings
+  let arr = [];
+  //if there are no movies, return the sum which is zero
+  if (!movies.length){
+    return sum;
+  }
+  //loop thru movies array
+  for (let i = 0; i < movies.length; i ++){
+    //push all ratings as a number into the array
+      arr.push(Number(movies[i].imdbRating))
+    }
+  //loop thru array of ratings
+  for (let j = 0; j < arr.length; j ++){
+    //add all ratings
+    sum += arr[j];
+  }
+  //return average of the ratings
+  return sum/arr.length;
+}
 
 /**
  * countByRating()
@@ -67,7 +122,29 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  //create empty object to return key/value pair
+  let obj = {};
+  //create empty array to store ratings
+  let arr = [];
+  //loop thru array of movies
+  for (let i = 0; i < movies.length; i ++){
+    //push all ratings into the array
+      arr.push(movies[i].rated);
+    }
+    //loop thru array and assign key/values to the object 
+    for (let rates of arr){
+      //if the rate is not in the object, add the key and the value will be 1
+      if (!obj[rates]){
+        obj[rates] = 1;
+      } else {
+        //if the rate exists in the object, add 1 to the value
+        obj[rates] += 1;
+      }
+    }
+    //return object 
+return obj;
+}
 
 /**
  * findById()
@@ -83,7 +160,18 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+   //loop thru movies array
+  for (let i = 0; i < movies.length; i ++){
+    //if the id matches, return the movie title
+   if (id === movies[i]["imdbID"]) {
+   return movies[i];
+  } 
+  } 
+  //if the id didn't match or the movies array was empty, return null
+  return null;
+}
+
 
 /**
  * filterByGenre()
@@ -105,7 +193,20 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, type) {
+//create empty array to store movies
+  let arr = [];
+//loop thru movies array
+for (let i = 0; i < movies.length; i ++){
+  //check movie genre against inputted type
+if (movies[i].genre.toLowerCase().split(", ").includes(type.toLowerCase())){
+  //if it matches, push into the array
+  arr.push(movies[i])
+  }
+}
+//return final array with movies that match the type given
+return arr;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,7 +230,20 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+ //create empty array to push movie titles into
+let arr = [];
+//iterate through movies array
+for (let i = 0; i < movies.length; i ++){
+  /* split the released date and get the third element. because it is a string, convert it into a Number. then check if that year is less than or equal to the given year */
+  if (parseFloat(movies[i]["released"].split(" ")[2]) <= year){
+    //push the movie into the empty array
+arr.push(movies[i]);
+  }
+}
+//return array with all movies
+return arr;
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -142,7 +256,30 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  //create variable for the highest box movie as number
+  let highestBox = 0;
+  //create variable for the movie title
+  let highestMovie = "";
+//if there are no movies, return null
+  if (!movies.length){
+    return null;
+  }
+//loop thru movies array
+  for (let movie of movies) {
+    //since the box number is a string and has $ and commas, remove them
+    let numberBox = Number(movie['boxOffice'].replace(/[$,]/g, ''));
+//if the box number at the index is higher than the current highest
+    if (numberBox > highestBox) {
+      //reassign the value of the current highest
+      highestBox = numberBox;
+      //assign the value of the highest movie title
+      highestMovie = movie['title'];
+    }
+  }
+  //return the highest boxes movie title
+  return highestMovie;
+}
 
 // Do not change anything below this line.
 module.exports = {
