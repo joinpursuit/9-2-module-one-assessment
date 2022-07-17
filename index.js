@@ -146,12 +146,19 @@ function countByRating(movies) {
     };
  */
 function findById(movies, id) {
-  if (movies.length === 0 || !id) {
-    return null;
-  }
+ let titles = {};
 
+ if (movies.length === 0) {
+  return null;
+ }
 
-
+//  for (let i = 0; i < movies.length; i++) {
+//   if (id !== movies[i].imdbID) {
+//     return null;
+//   } else if (id === movies[i].title;) {
+//     titles[title] = movies[i].title;
+//   }
+//  }
 }
 
 /**
