@@ -29,7 +29,7 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  let movieTitles = [];
+ let movieTitles = [];
   for (let title of movies){
     movieTitles.push(title.title)
   }
@@ -68,15 +68,7 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating(movies) {
-  let total = 0;
-  for (let movie of movies){
-    total += movie.imdbRating 
-  }
-  console.log(total)
-  
-  return total > 0 ? total / movies.length : 0;
-}
+function getAverageIMDBRating() {}
 
 /**
  * countByRating()
@@ -89,17 +81,7 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating(movies) {
-  let final = {}
-  for (let movie of movies){
-    if (final.movie > 1){
-      final[movie.rated] = 1
-    } else {
-      final[movie.rated] += 1
-    }
-  }
-  return final;
-}
+function countByRating() {}
 
 /**
  * findById()
@@ -115,14 +97,7 @@ function countByRating(movies) {
       // Toy Story 4
     };
  */
-function findById(movies, id) {
-  for (let movie of movies){
-    if (id === movie.imdbID){
-      return movie;
-    }
-  }
-  return null;
-}
+function findById() {}
 
 /**
  * filterByGenre()
@@ -144,15 +119,7 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre(movies, genre) {
-  let newArr = []
-  for (let movie of movies){
-    if (movie.genre.toUpperCase().includes(genre.toUpperCase())){
-      newArr.push(movie)
-    }
-  }
-  return newArr
-}
+function filterByGenre() {}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -176,16 +143,7 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
-  let yearArr = []
-  for (let movie of movies){
-    if (movie.releasedOnDVD <= year){
-      yearArr.push(movie)
-    }
-    console.log(yearArr)
-  }
-   return yearArr;
-}
+function getAllMoviesReleasedAtOrBeforeYear() {}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -198,17 +156,7 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie(movies) {
-  let highest = movies[0].boxOffice
-  for (let movie of movies){
-    if(movie.boxOffice > highest){
-      highest = movie.title;
-    }  if(movies.length < 1){
-      highest = null;
-    }
-  }
-  return highest;
-}
+function getBiggestBoxOfficeMovie() {}
 
 // Do not change anything below this line.
 module.exports = {
