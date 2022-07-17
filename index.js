@@ -193,8 +193,19 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre(movies, genre) {
+function filterByGenre(movies, type) {
+//create empty array to store movies
   let arr = [];
+//loop thru movies array
+for (let i = 0; i < movies.length; i ++){
+  //check movie genre against inputted type
+if (movies[i].genre.toLowerCase().split(", ").includes(type.toLowerCase())){
+  //if it matches, push into the array
+  arr.push(movies[i])
+  }
+}
+//return final array with movies that match the type given
+return arr;
 }
 
 /**
