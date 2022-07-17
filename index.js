@@ -28,7 +28,10 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  return movies.map(movie=>movie.title)
+
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +44,16 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let metaHighScore = 0;
+  for (let movie of movies) {
+    if (Number(movie.metascore) > metaHighScore) {
+      metaHighScore = Number(movie.metascore);
+    }
+  }
+  return metaHighScore;
+
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +66,16 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let avgImdbScore = 0;
+  if (!movies.length) {return avgImdbScore};
+
+  for (let movie of movies) {
+    avgImdbScore += Number(movie.imdbRating);
+  }
+
+  return avgImdbScore / movies.length;
+}
 
 /**
  * countByRating()
@@ -67,7 +88,15 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let daCount = {};
+
+  for (let movie of movies) {
+    daCount[movie.rated] = daCount[movie.rated] ? ++daCount[movie.rated] : 1;
+  }
+
+  return daCount;
+}
 
 /**
  * findById()
@@ -83,7 +112,14 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  for (let movie of movies) {
+    if (movie.imdbID === id) {
+      return movie;
+    }
+  } 
+  return null;
+}
 
 /**
  * filterByGenre()
@@ -105,7 +141,16 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let ifDwayneJohnsonIsInItDontWatch = [];
+  for (let movie of movies) {
+    if (movie.genre.toLowerCase().includes(genre.toLowerCase())) {
+      ifDwayneJohnsonIsInItDontWatch.push(movie);
+    }
+  }
+  return ifDwayneJohnsonIsInItDontWatch;
+}
+
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,7 +174,18 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let theseMoviesMakeMeFeelOld = [];
+
+  for (let movie of movies) {
+    let yearOfRelease = Number(movie['released'].split(' ')[2]);
+    if (yearOfRelease <= year) {
+      theseMoviesMakeMeFeelOld.push(movie);
+    }
+  }
+  return theseMoviesMakeMeFeelOld;
+
+}
 
 /**
  * getBiggestBoxOfficeMovie()
