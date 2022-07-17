@@ -135,7 +135,7 @@ function findById(movies, id ) {
 
   for (let movie of movies){
 
-  if (id === movie){
+  if (id === movie.imdbID){
     return movie
   }
 
