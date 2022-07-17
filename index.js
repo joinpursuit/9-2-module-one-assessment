@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,7 +29,20 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let movieArray = []
+if(movies.length === 0){
+return []
+} else{
+  for(let i =0;i< movies.length;i++){
+    if(movies[i].title.length > 1){
+      movieArray.push((movies[i].title))
+
+    }
+  }
+return movieArray
+}
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +55,22 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highestMetaScore = 0
+  
+
+  if (movies.length === 0){
+    return 0
+  }else{
+    for(let i =0;i< movies.length;i++){
+      if(movies[i].metascore > highestMetaScore){
+        highestMetaScore = movies[i].metascore 
+      }
+
+    }
+    return  parseInt(highestMetaScore)
+  }
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +83,24 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let movieRatings = [];
+  let total = 0
+  if (movies.length === 0){
+    return 0
+} else {
+  for(let i =0;i< movies.length;i++){
+    movieRatings.push(Number(movies[i].imdbRating))}
+    for(let i = 0; i < movieRatings.length; i++) {
+      total = total + movieRatings[i];}
+  
+  var avg = total / movieRatings.length;
+
+    }
+    return avg
+  
+}
+
 
 /**
  * countByRating()
@@ -67,7 +113,19 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let moviesObj = {}
+  let movieRated= ""
+  let ratedOccured = 0
+  if (movies.length === 0){
+    return {}
+} else {
+  for(let i =0;i< movies.length;i++){
+    movies[i].rated 
+
+}
+}
+}
 
 /**
  * findById()
@@ -129,7 +187,17 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
+  returnArr = []
+  movieYear = 0
+  for(let i = 0; i < movies.length; i++){
+   movieYear = movies[i].released[2]
+  if(movieYear < year || movieYear === year ){
+    returnArr.push(movies[i]["title"])
+  }
+  return movieYear
+  }
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -142,7 +210,24 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let highestBoxOfficeMovie = ""
+  let highestBoxOfficeMovieName = ""
+  
+
+  if (movies.length === 0){
+    return null
+  }else{
+    for(let i =0;i< movies.length;i++){
+      if(movies[i].boxOffice > highestBoxOfficeMovie){
+        highestBoxOfficeMovie = movies[i].boxOffice
+        highestBoxOfficeMovieName = movies[i].title
+      }
+      return  highestBoxOfficeMovieName
+
+    }
+    
+}}
 
 // Do not change anything below this line.
 module.exports = {
