@@ -29,7 +29,7 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  let movieTitles = movies.map(item => item.title)
+  let movieTitles = movies.map(item => item.title);
   return movieTitles;
 }
 
@@ -44,7 +44,15 @@ function getAllMovieTitles(movies) {
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highestMetascore = 0;
+  for (let movie of movies) {
+    if (Number(movie['metascore'] > highestMetascore)) {
+      highestMetascore = Number(movie['metascore']);
+    }
+  }
+return highestMetascore;
+}
 
 /**
  * getAverageIMDBRating()
