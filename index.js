@@ -222,8 +222,11 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year)
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() { }
+function getBiggestBoxOfficeMovie(movies) {
 
+ }
+
+ getBiggestBoxOfficeMovie(exampleMovies)
 // Do not change anything below this line.
 module.exports = {
   getAllMovieTitles,
