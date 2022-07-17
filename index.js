@@ -28,11 +28,18 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let movieCharacters = [];
+  for (let movie of movies){
+    movieCharacters.push(movie.title);
+  }
+  return movieCharacters
+}
 
 /**
  * getHighestMetascore()
- * -----------------------------
+ * ------
+ *-----------------------
  * Returns the highest `metascore` among all movies. If the inputted `movies` array is empty, return `0`.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
  * @returns {number} The highest `metascore` of all movies.
@@ -41,7 +48,26 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  if(movies.length === 0){
+  return {};
+  }
+  let highestMetaScore = 0;
+  for (let i = 1; i < movie.movies.length; i++){
+    let metascores = movie.movies[i];
+    if(metascores.metascore >= movie.metascore[highestMetaScore].metascore){
+      //highestMetaScore[i];
+      //if(!metascore){
+
+     // }
+    }
+    //return 0
+    }
+    highestMetaScore[i];
+  }
+  
+  
+
 
 /**
  * getAverageIMDBRating()
@@ -67,7 +93,15 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+let movieNotRated = 0
+for(let i = 1; i < movie.rated.length; i++){
+  let ratingRated = movies
+  }
+  return ratingRated;
+}
+
+
 
 /**
  * findById()
@@ -83,7 +117,15 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies,id) {
+  let targettedmovie = null;
+   for(let movie of movies){
+    if(movie.imdbID === id){
+      targettedMovie = movie;
+    }
+}
+   return targettedMovie;
+}
 
 /**
  * filterByGenre()
@@ -105,7 +147,12 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies,genre) {
+let targettedmovie = null;
+for(let movie of movies){
+
+}
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
