@@ -111,7 +111,6 @@ let movieRatingsArray = []
     else{newObject[element] = 1}
   }
 return newObject
-
 }
 
 /**
@@ -128,7 +127,23 @@ return newObject
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+let theID = []
+let theMovies = []
+let newObject ={}
+  for (i=0;i<movies.length;i++){
+    theID.push(movies[i].imdbID)
+    theMovies.push(movies[i].title)
+  }
+if(movies.length ===0 || !theID.includes(id)){return null}
+else{
+
+  return movies[theID.indexOf(id)]
+  //  newObject[theMovies[theID.indexOf(id)]] = theID[theID.indexOf(id)]
+  //  console.log(newObject)
+  //  return newObject
+}
+}
 
 /**
  * filterByGenre()
