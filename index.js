@@ -176,7 +176,16 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let yearArr = []
+  for (let movie of movies){
+    if (movie.releasedOnDVD <= year){
+      yearArr.push(movie)
+    }
+    console.log(yearArr)
+  }
+   return yearArr;
+}
 
 /**
  * getBiggestBoxOfficeMovie()
