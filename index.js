@@ -29,6 +29,7 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
+  
   return movies.map(item => item.title)
 }
 /**
@@ -53,6 +54,7 @@ function getHighestMetascore(movies) {
       result=Number(movie['metascore']);
     }
   }
+  
   return result
 }
 
@@ -74,26 +76,13 @@ function getAverageIMDBRating(movies) {
     totalIMDBRating += Number(movie.imdbRating);
   } 
   if(movies.length === 0){
+    
     return 0;
   }
   else (movies)
-  return totalIMDBRating/movies.length;
   
-  // return movies.length === 0 ? 0 : totalIMDBRating/movies.length;
+    return totalIMDBRating/movies.length;
 }
-
-
-
-// let sumIMBDRaiting = 0;
-//   for (let movie of movies) {
-//     sumIMBDRaiting += Number(movie.imdbRating);
-//   }
-//   if( movies/length === 0){
-//     return movies.length;
-//   }
-//   else 
-//   return sumIMBDRaiting/movies.length;
-// }
 
 
 /**
@@ -107,7 +96,21 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+ 
+  let count = {};
+
+  for (let movie of movies) {
+    
+    if (count[movie['rated']] === undefined) {
+      count[movie['rated']] = 1;
+    
+    } else {
+      count[movie['rated']]++;
+    }
+  }
+  return count;
+}
 
 /**
  * findById()
@@ -123,7 +126,20 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+
+  for (let movie of movies){
+    if (id === movie.imdbID){
+      return movie;
+    } 
+    else if(movie !== movie.imdbID || id){
+      return null;
+    
+    } else (!movies)
+      return null;
+  }
+}
+
 
 /**
  * filterByGenre()
@@ -145,7 +161,16 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let moviesByGenre = [];
+  
+  for (let movie of movies) {
+    if (movie.genre.toLowerCase().includes(genre.toLowerCase())) {
+        moviesByGenre.push(movie);
+    }
+  }
+  return moviesByGenre;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
