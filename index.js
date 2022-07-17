@@ -96,7 +96,23 @@ else{return sum/(imbdRATINGlist.length)}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+let movieRatingsArray = []
+  let newObject = {}
+
+  for (i=0;i<movies.length;i++){
+    movieRatingsArray.push(movies[i].rated)
+  }
+
+  for (const element of movieRatingsArray ){
+    if(newObject[element]){
+      newObject[element] += 1;
+    }
+    else{newObject[element] = 1}
+  }
+return newObject
+
+}
 
 /**
  * findById()
