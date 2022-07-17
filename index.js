@@ -123,8 +123,22 @@ function countByRating(movies) {
       // Toy Story 4
     };
  */
-function findById() {}
-
+function findById(movies, id) {
+  let movieObject;                                          //initialize
+  let allIds = [];
+  for (let i=0; i<movies.length; i++) {
+    if (movies[i].imdbID === id) {               // if the id matches the imdbID of the current object then assign object to movieObject var
+      movieObject = movies[i];
+    }
+    allIds.push(movies[i].imdbID)                       //pushes all imdbIds into one array to be used for guard clause error message
+  }
+  if (!allIds.includes(id) || movies.length === 0) {    // if the id argument does not match any of the existing imdbIds or '{}' return null
+    return null;
+  } else {
+    return movieObject;
+  }
+}
+// findById(exampleMovies, "tt1979376");
 /**
  * filterByGenre()
  * -----------------------------
