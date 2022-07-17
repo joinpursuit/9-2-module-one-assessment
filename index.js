@@ -69,7 +69,13 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let totalIMDBRating = 0;
+  for (let movie of movies) {
+    totalIMDBRating += Number(movie.imdbRating);
+  }
+  return movies.length === 0 ? 0 : totalIMDBRating/movies.length;
+}
 
 /**
  * countByRating()
