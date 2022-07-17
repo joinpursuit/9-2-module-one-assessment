@@ -76,7 +76,21 @@ if(movies.length > 0){
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let average = 0
+  let ratings = []
+  
+  if(movies.length > 0) {
+  for(let i = 0; i < movies.length; i++) {
+    ratings.push(Number(movies[i].imdbRating))
+  }
+  for(let i = 0; i < ratings.length; i++) {
+    average += ratings[i]
+  } return average / ratings.length
+} else {
+  return 0
+}
+}
 
 /**
  * countByRating()
