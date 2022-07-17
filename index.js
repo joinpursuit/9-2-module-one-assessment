@@ -124,7 +124,17 @@ function getAverageIMDBRating(movies) {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let findMovie = null;
+
+  for(let movie of movies){
+    if(movie.imdbID === id){
+      findMovie = movie;
+    }
+  }
+
+  return findMovie;
+}
 
 /**
  * filterByGenre()
