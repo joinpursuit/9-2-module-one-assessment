@@ -73,8 +73,18 @@ let metascoreArray = []
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
-
+function getAverageIMDBRating(movies) {
+let imbdRATINGlist = []
+let sum = 0
+  for (i=0;i<movies.length;i++){
+    imbdRATINGlist.push(Number(movies[i].imdbRating))
+  }
+  for (i=0;i<imbdRATINGlist.length;i++){
+sum+= imbdRATINGlist[i]
+}
+if(movies.length ===0){ return 0}
+else{return sum/(imbdRATINGlist.length)}
+}
 /**
  * countByRating()
  * -----------------------------
